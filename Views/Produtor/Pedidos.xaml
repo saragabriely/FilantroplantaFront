@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Filantroplanta.Views.Produtor.Pedidos"
+             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+             xmlns:local="clr-namespace:Filantroplanta.Views.Componentizacao"
+             NavigationPage.HasBackButton="False"
+             Title="Pedidos">
+
+    <VerticalStackLayout 
+        Spacing="5"
+        Padding="20,0" 
+        >
+
+        <Border Stroke="#1C6B00"
+                StrokeThickness="1"
+                HorizontalOptions="Center"
+                StrokeShape="RoundRectangle 6"
+                WidthRequest="340"
+                Margin="0,10,0,5"
+            >
+            <Picker Title="Selecione o status desejado" HorizontalTextAlignment="Center" FontSize="14" x:Name="buscaStatus" SelectedIndexChanged="BuscaStatus_SelectedIndexChanged" >
+                <Picker.Items>
+                    <x:String>Todos os status</x:String>
+                    <x:String>Pendente de aprovação</x:String>
+                    <x:String>Pendente de envio</x:String>
+                    <x:String>Finalizado</x:String>
+                    <x:String>Cancelado pelo produtor</x:String>
+                    <x:String>Cancelado pelo cliente</x:String>
+                </Picker.Items>
+            </Picker>
+        </Border>
+
+        <local:LabelListaVazia x:Name="lblListaVazia" TextLabel="Nenhum pedido encontrado até o momento" IsVisible="false"   />
+
+        <ScrollView HeightRequest="570" VerticalOptions="Start" >
+            <Grid HeightRequest="570" >
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <ListView Grid.Row="0" x:Name="listaPedidos" HeightRequest="570" HorizontalScrollBarVisibility="Always" VerticalOptions="Start" RowHeight="70" SeparatorVisibility="None" 
+                          ItemSelected="ListaPedidos_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Border Stroke="DarkGray"
+                                                StrokeThickness="1"
+                                                HorizontalOptions="Center"
+                                                StrokeShape="RoundRectangle 6"
+                                                WidthRequest="340"
+                                                Padding="8"
+                                            >
+                                        <Grid MaximumHeightRequest="50" WidthRequest="330" Margin="5,0,0,0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="50"/>
+                                                <ColumnDefinition Width="60"/>
+                                                <ColumnDefinition Width="50"/>
+                                                <ColumnDefinition Width="160"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Grid.Row="0" Grid.Column="0" Text="Pedido: "  FontSize="13" TextColor="#1C6B00" FontAttributes="Bold"  />
+                                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding PedidoID}"  FontSize="13" TextColor="#1C6B00" />
+
+                                            <Label Grid.Row="0" Grid.Column="2" Text="Status:" FontAttributes="Bold" FontSize="13"  />
+                                            <Label Grid.Row="0" Grid.Column="3" Text="{Binding StatusPedidoDescricao}"  FontSize="13"  />
+
+                                            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="Data do Pedido: " FontAttributes="Bold" FontSize="13"  />
+                                            <Label Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"  Text="{Binding DataPedido}"  FontSize="13"  />
+
+                                            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="Valor Total: " FontAttributes="Bold" FontSize="13"  />
+                                            <Label Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"  Text="{Binding ValorTotal}"  FontSize="13"  />
+
+                                        </Grid>
+                                    </Border>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </ScrollView>
+
+    </VerticalStackLayout>
+</ContentPage>

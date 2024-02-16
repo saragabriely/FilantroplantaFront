@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Filantroplanta.Views.Filantro"
+             Title="FilantroPlanta">
+    <VerticalStackLayout Margin="40,0">
+
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Label 
+                x:Name="lblMsgInicial"
+                Text="Quem somos?"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                FontSize="16"
+                Margin="0,30,10,30"
+                FontAttributes="Bold"
+            />
+
+            <ImageButton Source="icone.png" WidthRequest="30" HeightRequest="30" />
+        </HorizontalStackLayout>
+        
+
+        <StackLayout HeightRequest="450">
+            <Label Text="Somos uma plataforma digital que foi construída para ajudar a conectar agricultores e restaurantes / hortifrutis." HorizontalTextAlignment="Center" />
+            <Label />
+            <Label Text="Essa conexão auxilia restaurantes /hortifrutis a encontrarem produtos de qualidade de produtores locais. E ajuda os produtores a venderem seus produtos." HorizontalTextAlignment="Center" />
+        </StackLayout>
+
+        
+        <Label Text="Contato" HorizontalTextAlignment="Center" FontAttributes="Bold" />
+        
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <ImageButton Source="email.png" WidthRequest="20" HeightRequest="20" />
+            <Label Text="filantroplanta@gmail.com" HorizontalTextAlignment="Center" Margin="5" />
+        </HorizontalStackLayout>
+        
+
+    </VerticalStackLayout>
+</ContentPage>

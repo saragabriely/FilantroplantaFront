@@ -1,0 +1,234 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
+		<OutputType>Exe</OutputType>
+		<RootNamespace>Filantroplanta</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Display name -->
+		<ApplicationTitle>Filantroplanta</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.filantroplanta</ApplicationId>
+		<ApplicationIdGuid>82350f36-4a79-4215-928d-6bde519fd613</ApplicationIdGuid>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#1C6B00" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#1C6B00" BaseSize="128,128" />
+
+		<!-- Images -->
+    <MauiImage Include="Resources\Images\*" />
+    <MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+    <MauiImage Update="Resources\Images\paginainicial.jpg" BaseSize="168,208">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </MauiImage>
+    <MauiImage Update="Resources\Images\icone.png" BaseSize="168,208" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Views\PaginaInicial.xaml.cs" />
+	  <Compile Remove="Views\Produtor\Teste.xaml.cs" />
+	  <Compile Remove="Views\Usuario\MinhaConta.xaml.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\pesquisa.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Remove="Views\PaginaInicial.xaml" />
+	  <MauiXaml Remove="Views\Produtor\Teste.xaml" />
+	  <MauiXaml Remove="Views\Usuario\MinhaConta.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Images\email.png" />
+	  <None Remove="Resources\Images\estoque.png" />
+	  <None Remove="Resources\Images\home.png" />
+	  <None Remove="Resources\Images\icone.png" />
+	  <None Remove="Resources\Images\listapedidos.png" />
+	  <None Remove="Resources\Images\lixeira.png" />
+	  <None Remove="Resources\Images\minhaconta.png" />
+	  <None Remove="Resources\Images\paginainicial.jpg" />
+	  <None Remove="Resources\Images\produtos.png" />
+	  <None Remove="Resources\Images\restaurante.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\Componentizacao\BotaoExcluirRecusar.xaml.cs">
+	    <DependentUpon>BotaoExcluirRecusar.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Componentizacao\BotaoCancelar.xaml.cs">
+	    <DependentUpon>BotaoCancelar.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Componentizacao\LabelInputSenha.xaml.cs">
+	    <DependentUpon>LabelInputSenha.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Produtor\CadastroProduto.xaml.cs">
+	    <DependentUpon>CadastroProduto.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Produtor\DetalhePedido.xaml.cs">
+	    <DependentUpon>DetalhePedido.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Produtor\ListaEstoque.xaml.cs">
+	    <DependentUpon>ListaEstoque.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Produtor\Estoque.xaml.cs">
+	    <DependentUpon>Estoque.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Produtor\MinhaConta.xaml.cs">
+	    <DependentUpon>MinhaConta.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Produtor\PaginaInicial.xaml.cs">
+	    <DependentUpon>PaginaInicial.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Produtor\Home.xaml.cs">
+	    <DependentUpon>Home.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Produtor\Pedidos.xaml.cs">
+	    <DependentUpon>Pedidos.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Produtor\Produtos.xaml.cs">
+	    <DependentUpon>Produtos.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Restaurante\PaginaInicial.xaml.cs">
+	    <DependentUpon>PaginaInicial.xaml</DependentUpon>
+	  </Compile>
+    <Compile Update="Views\Restaurante\ItensPedido.xaml.cs">
+      <DependentUpon>ItensPedido.xaml</DependentUpon>
+    </Compile>
+	  <Compile Update="Views\Usuario\CadastroPessoa.xaml.cs">
+	    <DependentUpon>CadastroPessoa.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\Componentizacao\BotaoExcluirRecusar.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Componentizacao\BotaoSalvar.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Componentizacao\BotaoCancelar.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Componentizacao\LabelInputNumero.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Componentizacao\LabelInputSenha.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Componentizacao\LabelListaVazia.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Componentizacao\LabelTitulo.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Componentizacao\LabelInput.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Filantro.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Login.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Produtor\CadastroProduto.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Produtor\ListaEstoque.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Produtor\DetalhePedido.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Produtor\Estoque.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Produtor\MinhaConta.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Produtor\Home.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Produtor\PaginaInicial.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Produtor\Pedidos.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Produtor\Produtos.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Restaurante\Carrinho.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Restaurante\FinalizarCarrinho.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Restaurante\Home.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Restaurante\MinhaConta.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Restaurante\PaginaInicial.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+    <MauiXaml Update="Views\Restaurante\ItensPedido.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+	  <MauiXaml Update="Views\Restaurante\Pedidos.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Restaurante\Restaurantes.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Restaurante\VisualizarProduto.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Usuario\AlterarSenha.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Usuario\CadastroPessoa.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="LazyCache" Version="2.4.0" />
+	  <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
+	  <PackageReference Include="Microsoft.VisualStudio.Utilities" Version="17.8.37221" />
+	  <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
+	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadUnhandledDeviceExceptionFilantroplantaHideInfoBar="True" /></VisualStudio></ProjectExtensions>
+
+</Project>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Filantroplanta.Views.Produtor.MinhaConta"
+             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+             xmlns:local="clr-namespace:Filantroplanta.Views.Componentizacao"
+             NavigationPage.HasBackButton="False"
+             Title="Minha Conta">
+
+    <VerticalStackLayout 
+        Spacing="5"
+        Padding="30,0" 
+        >
+
+        <local:LabelTitulo Titulo="Manutenção dos seus dados" x:Name="lblMinhaConta" />
+
+        <Border Stroke="#1C6B00"
+                    StrokeThickness="2"
+                    HorizontalOptions="Center"
+                    StrokeShape="RoundRectangle 6"
+                    x:Name="btnMeusDados_"
+                    Margin="0,10,0,20"
+                    >
+            <Button x:Name="btnMeusDados" Text="Meus Dados" WidthRequest="250" BackgroundColor="#1C6B00" TextColor="White" FontAttributes="Bold" Clicked="btnMeusDados_Clicked" />
+        </Border>
+
+        <Border Stroke="White"
+                StrokeThickness="2"
+                HorizontalOptions="Center"
+                StrokeShape="RoundRectangle 6"
+                x:Name="btnAlterarSenha_"
+                Margin="0,0,0,20"
+                >
+            <Button x:Name="btnAlterarSenha" Text="Alterar Senha" WidthRequest="250" BackgroundColor="#AA7C04" TextColor="White" FontAttributes="Bold" Clicked="btnAlterarSenha_Clicked"  />
+        </Border>
+
+        <Border Stroke="#1C6B00"
+                StrokeThickness="2"
+                HorizontalOptions="Center"
+                StrokeShape="RoundRectangle 6"
+                x:Name="btnCadastrar_"
+                    >
+            <Button x:Name="btnSair" Text="Sair" WidthRequest="250" BackgroundColor="White" TextColor="#1C6B00" FontAttributes="Bold" Clicked="btnSair_Clicked" />
+        </Border>
+
+
+    </VerticalStackLayout>
+    
+</ContentPage>

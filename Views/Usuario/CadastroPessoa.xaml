@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Filantroplanta.Views.Usuario.CadastroPessoa"
+             xmlns:local="clr-namespace:Filantroplanta.Views.Componentizacao"
+             Title="Cadastro" 
+             IconImageSource="icone.png" >
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="5"
+            Padding="30,0" >
+
+            <local:LabelTitulo Titulo="Primeiro Cadastro" x:Name="lblPrimeiroCadastro"                    />
+            <local:LabelTitulo Titulo="Meu Cadastro"      x:Name="lblMeuCadastro"       IsVisible="false" />
+
+            <HorizontalStackLayout x:Name="stPerfilCadastro" IsVisible="false" BackgroundColor="LightGray">
+                <Label Text=" Perfil:" Margin="0,10" FontAttributes="Bold" FontSize="15" />
+                <Label Text="" x:Name="lblPerfilUsuario" Margin="10" />
+            </HorizontalStackLayout>
+
+            <!--<HorizontalStackLayout x:Name="stTipoDocumento_" IsVisible="false" BackgroundColor="LightGray"> <Label Text=" Perfil:" Margin="0,10" FontAttributes="Bold" FontSize="15" /> <Label Text="" x:Name="lblTipoDocumento" Margin="10" /></HorizontalStackLayout>-->
+
+            <HorizontalStackLayout x:Name="stPerfil">
+                <Label Text="Seu perfil: " x:Name="lblSelecionarPerfil" Margin="0,5,30,0" />
+                <HorizontalStackLayout Margin="0,0,0,20" RadioButtonGroup.GroupName="rbTipoPessoa" x:Name="rbPerfil" >
+                    <RadioButton x:Name="rbRestaurante" Content="Restaurante" IsChecked="true" Margin="10,0,20,0"  />
+                    <RadioButton x:Name="rbProdutor" Content="Produtor"  />
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+
+            <local:LabelInputNumero TextoLabel="Documento"     PlaceholderEntry="000.000.000/0000-00"    x:Name="entDocumento"      />
+            
+            <!--<local:LabelInputNumero TextoLabel="CEP"           PlaceholderEntry="00000-000"              x:Name="entCep"            />-->
+
+            <local:LabelInput       TextoLabel="Nome Completo" PlaceholderEntry="Digite o nome completo" x:Name="entNome"        Margin="0,20,0,0"  />
+            
+            <VerticalStackLayout>
+                <Label x:Name="NameLabel" Text="CEP" />
+                <Entry x:Name="entCep" Placeholder="00000000" WidthRequest="320" MaxLength="8" Margin="-10,0,0,0" Keyboard="Numeric" TextChanged="entCep_TextChanged" />
+                <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,10" />
+            </VerticalStackLayout>
+
+            <local:LabelInput       TextoLabel="Endereço"      PlaceholderEntry="Avenida ..."            x:Name="entEndereco"       />
+            <local:LabelInputNumero TextoLabel="Número"        PlaceholderEntry="1"                      x:Name="entNumero"         />
+            <local:LabelInput       TextoLabel="Complemento"   PlaceholderEntry="Digite o complemento"   x:Name="entComplemento"    />
+            <local:LabelInput       TextoLabel="Bairro"        PlaceholderEntry="Digite o bairro"        x:Name="entBairro"         />
+            <local:LabelInput       TextoLabel="Cidade"        PlaceholderEntry="Digite a cidade"        x:Name="entCidade"         />
+            <local:LabelInput       TextoLabel="Estado"        PlaceholderEntry="Digite o estado"        x:Name="entEstado"         />
+            <local:LabelInputNumero TextoLabel="Telefone"      PlaceholderEntry="(00)00000-0000"         x:Name="entTelefone"       />
+            <local:LabelInput       TextoLabel="Email"         PlaceholderEntry="Ex.: contato@email.com" x:Name="entEmail"          />
+
+            <StackLayout x:Name="stSenha">
+                <local:LabelInputSenha TextoLabel="Senha"           x:Name="entSenha" />
+                <local:LabelInputSenha TextoLabel="Confirmar Senha" x:Name="entConfirmaSenha" />
+            </StackLayout>
+
+            <HorizontalStackLayout x:Name="hsBotoesSalvarCancelar" Margin="0,0,0,40"  />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+
+</ContentPage>

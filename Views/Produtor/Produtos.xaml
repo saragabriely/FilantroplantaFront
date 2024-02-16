@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Filantroplanta.Views.Produtor.Produtos"
+             xmlns:local="clr-namespace:Filantroplanta.Views.Componentizacao"
+             NavigationPage.HasBackButton="False"
+             Title="Produtos" >
+
+    <VerticalStackLayout 
+        Spacing="5"
+        Padding="30,0" 
+        >
+
+        <Border Stroke="#FFFFFF"
+                StrokeThickness="2"
+                HorizontalOptions="Center"
+                StrokeShape="RoundRectangle 6"
+                Margin="0,20,0,0"
+                     >
+            <Button Text="+ Adicionar Produto" WidthRequest="300" BackgroundColor="#AA7C04" TextColor="White" FontAttributes="Bold" Clicked="ButtonAdicionarProduto_Clicked" VerticalOptions="EndAndExpand"  />
+        </Border>
+
+        <local:LabelListaVazia x:Name="lblListaVazia" TextLabel="Nenhum produto cadastrado até o momento" IsVisible="false"   />
+
+        <ScrollView>
+            <ListView x:Name="listaProdutos" ItemSelected="listaProdutos_ItemSelected" Margin="0,10" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Descricao}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+
+    </VerticalStackLayout>
+</ContentPage>

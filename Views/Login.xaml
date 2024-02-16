@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Filantroplanta.Views.Login"
+             xmlns:local="clr-namespace:Filantroplanta"
+             Title="Login"
+             BackgroundImageSource="paginainicial.jpg"
+             NavigationPage.HasNavigationBar="false"
+             NavigationPage.HasBackButton="false"
+             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+             >
+
+    <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+        <Image
+                Source="icone.png"
+                HeightRequest="70"
+                HorizontalOptions="Start"
+                Margin="8,0,0,0"
+                />
+
+        <Label
+                Text="Filantro
+                Planta"
+                FontSize="45"
+                HorizontalOptions="Center"
+                TextColor="#1C6B00"
+                FontAttributes="Bold"
+                FontFamily="Lobster-Regular"
+                Margin="16,-20,0,90"
+                    />
+
+        <Label
+                Text="USUÁRIO"
+                SemanticProperties.HeadingLevel="Level2"
+                FontSize="18"
+                HorizontalOptions="Center"
+                FontAttributes="Bold"
+                Margin="-10,50,0,-15"
+                 />
+
+        <Border Stroke="#1C6B00"
+                StrokeThickness="1"
+                HorizontalOptions="Center"
+                StrokeShape="RoundRectangle 8" >
+
+            <Entry Placeholder="Digite o seu usuário"  
+                   HorizontalTextAlignment="Center"
+                   WidthRequest="300"  
+                   x:Name="entUsuario"
+                   Keyboard="Email"
+                   />
+        </Border>
+
+        <Label
+                Text="SENHA"
+                SemanticProperties.HeadingLevel="Level3"
+                FontSize="18"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                FontAttributes="Bold"
+                Margin="-10, -15"
+                />
+
+        <Border Stroke="#1C6B00"
+                StrokeThickness="1"
+                HorizontalOptions="Center"
+                StrokeShape="RoundRectangle 8"
+                >
+            <Entry Placeholder="*****"  
+                   HorizontalTextAlignment="Center"
+                   WidthRequest="300"
+                   x:Name="entSenha"
+                   IsPassword="True"
+                   />
+        </Border>
+
+        <Border Stroke="#FFFFFF"
+                StrokeThickness="2"
+                HorizontalOptions="Center"
+                StrokeShape="RoundRectangle 8"
+                >
+            <Button
+                    BackgroundColor="#1C6B00"
+                    x:Name="btnLogin"
+                    Text="LOGIN"
+                    HorizontalOptions="Center"
+                    WidthRequest="300" 
+                    HeightRequest="45"
+                    Clicked="btnLogin_Clicked"
+                />
+        </Border>
+
+        <Label Text="Ainda não possui cadastro? Clique aqui!"
+                SemanticProperties.HeadingLevel="Level3"
+                FontSize="14"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                FontAttributes="Bold" >
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="RealizarCadastro_Clicked" NumberOfTapsRequired="1" />
+            </Label.GestureRecognizers>
+        </Label>
+
+    </VerticalStackLayout>
+</ContentPage>

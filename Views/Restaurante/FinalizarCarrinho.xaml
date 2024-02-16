@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+             x:Class="Filantroplanta.Views.Restaurante.FinalizarCarrinho"
+             xmlns:local="clr-namespace:Filantroplanta.Views.Componentizacao"
+             Title="Finalizar Carrinho">
+    
+    <VerticalStackLayout
+        x:Name="verticalLayout"
+        Spacing="5">
+        
+        <ScrollView  x:Name="scrollItensCarrinho" HeightRequest="520" Margin="0,20,0,0" VerticalOptions="Start">
+            <Grid  >
+                <Grid.RowDefinitions>
+                    <RowDefinition  />
+                </Grid.RowDefinitions>
+
+                <ListView Grid.Row="0"  x:Name="listaItensCarrinho" SelectionMode="None" HeightRequest="460" VerticalOptions="Start" RowHeight="80" SeparatorVisibility="None" HorizontalScrollBarVisibility="Always" ItemsSource="{Binding Items,Mode=TwoWay}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout >
+                                    <Grid MaximumHeightRequest="80" WidthRequest="340" >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="72"/>
+                                            <ColumnDefinition Width="70"/>
+                                            <ColumnDefinition Width="70"/>
+                                            <ColumnDefinition Width="120"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding NomeProduto}"  FontSize="14" TextColor="#1C6B00" FontAttributes="Bold"  />
+
+                                        <Label Grid.Row="1" Grid.Column="0" Text="Produtor:" FontAttributes="Bold" FontSize="13"  />
+                                        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding NomeProdutor}"  FontSize="13"  />
+
+                                        <Label Grid.Row="2" Grid.Column="0" Text="Qtde em KG:" FontAttributes="Bold" FontSize="13"  />
+                                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding Quantidade}"  FontSize="13"  />
+
+                                        <Label Grid.Row="2" Grid.Column="2" Text="Local:" FontAttributes="Bold" FontSize="13"  />
+                                        <Label Grid.Row="2" Grid.Column="3" Text="{Binding Localizacao}"  FontSize="13"  />
+
+                                        <Label Grid.Row="3" Grid.Column="0" Text="Valor p/KG:" FontAttributes="Bold" FontSize="13"  />
+                                        <Label Grid.Row="3" Grid.Column="1" Text="{Binding ValorPorKG}"  FontSize="13"  />
+
+                                        <Label Grid.Row="3" Grid.Column="2" Text="Valor Total:" FontAttributes="Bold" FontSize="13"  />
+                                        <Label Grid.Row="3" Grid.Column="3" Text="{Binding ValorTotalFormatado}"  FontSize="13"  />
+
+                                        <BoxView Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" HeightRequest="1" Color="LightGray" Margin="0,10,0,0" />
+                                    </Grid>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </ScrollView>
+
+        <VerticalStackLayout x:Name="hstEndereco"  Margin="-40,-55,0,10" >
+            <Label Text="Endereço de Entrega" FontSize="14"  FontAttributes="Bold" HorizontalOptions="Center" />
+            <Entry FontSize="14" x:Name="lblEndereco" HorizontalOptions="Center" />
+        </VerticalStackLayout>
+
+        <HorizontalStackLayout x:Name="hstValorTotal" HorizontalOptions="Center">
+            <Label Text="Valor Total: " FontSize="14"  FontAttributes="Bold"   />
+            <Label FontSize="14"  FontAttributes="Bold"  x:Name="lblValorTotal" />
+        </HorizontalStackLayout>
+
+        <StackLayout x:Name="slBtnFinalizar">
+            <Border Stroke="white"
+                    StrokeThickness="2"
+                    HorizontalOptions="Center"
+                    StrokeShape="RoundRectangle 6"
+                    Margin="0,0,10,0" 
+                    >
+                <Button WidthRequest="250" BackgroundColor="#C38E06" TextColor="White" FontAttributes="Bold" Text="Confirmar Pedido" x:Name="btnFinalizar" Clicked="BtnFinalizar_Clicked" />
+            </Border>
+        </StackLayout>
+
+
+    </VerticalStackLayout>
+</ContentPage>

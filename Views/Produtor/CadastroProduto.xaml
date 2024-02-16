@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Filantroplanta.Views.Produtor.CadastroProduto"
+             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+             xmlns:local="clr-namespace:Filantroplanta.Views.Componentizacao"
+             Title="Produto">
+
+    <VerticalStackLayout 
+        x:Name="verticalLayout"
+        Spacing="5"
+        Padding="30,0">
+        
+        <local:LabelTitulo Titulo="Cadastro de Produto" />
+
+        <local:LabelInput       TextoLabel="Nome do Produto"  PlaceholderEntry="Digite o nome do produto" x:Name="entNomeProduto" />
+        <local:LabelInputNumero TextoLabel="Quantidade em KG" PlaceholderEntry="1000"                     x:Name="entQtde"        />
+        <local:LabelInputNumero TextoLabel="Valor por KG"     PlaceholderEntry="1000"                     x:Name="entValorPorKG"  />
+
+        <Label Text="Foto" />
+
+        <HorizontalStackLayout x:Name="hsBotoesSalvarCancelar" />
+
+        <StackLayout x:Name="slBotaoExcluir" IsVisible="false" Margin="0,30" />
+
+    </VerticalStackLayout>
+</ContentPage>

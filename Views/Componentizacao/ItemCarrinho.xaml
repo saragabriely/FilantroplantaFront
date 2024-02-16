@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Filantroplanta.Views.Componentizacao.ItemCarrinho"
+             x:Name="ControleItemCarrinhoLabel"
+             BindingContext="{x:Reference ControleItemCarrinhoLabel}"
+             >
+
+    <VerticalStackLayout HeightRequest="400" BackgroundColor="Azure">
+        <Border Stroke="#1C6B00"
+                    StrokeThickness="1"
+                    HorizontalOptions="Center"
+                    StrokeShape="RoundRectangle 6"
+                    WidthRequest="350"
+                    Padding="10"
+                    >
+            <Grid x:Name="gridResumoPedidos" >
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Text="{Binding NomeProduto}" x:Name="lblProduto" FontAttributes="Bold" FontSize="14" TextColor="#1C6B00" Margin="0,0,0,3"  />
+
+                <Label Grid.Row="1" Grid.Column="0" Text=" Quantidade"    FontSize="12"  Margin="0,0,0,3" />
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Quantidade}" Margin="0,0,0,3" x:Name="lblQuantidade" HorizontalTextAlignment="End" />
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Localização"   FontSize="12" Margin="0,0,0,3" />
+                <Label Grid.Row="2" Grid.Column="1" Text="{Binding Localizacao}" Margin="0,0,0,3" x:Name="lblLocalizacao" HorizontalTextAlignment="End" />
+
+                <Label Grid.Row="3" Grid.Column="0" Text="Valor Total" FontSize="12" FontAttributes="Bold"  />
+                <Label Grid.Row="3" Grid.Column="1" Text="{Binding ValorTotal}" x:Name="lvlValorTotal" HorizontalTextAlignment="End" />
+            </Grid>
+        </Border>
+    </VerticalStackLayout>
+    
+</ContentView>

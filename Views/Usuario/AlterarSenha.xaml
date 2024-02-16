@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Filantroplanta.Views.Usuario.AlterarSenha"
+             xmlns:local="clr-namespace:Filantroplanta.Views.Componentizacao"
+             Title="Alterar Senha">
+
+    <VerticalStackLayout 
+        Spacing="5"
+        Padding="30,0" 
+        >
+
+        <local:LabelTitulo Titulo="Alteração de Senha" x:Name="lblAlterarSenha" />
+
+        <StackLayout x:Name="stSenha">
+            <local:LabelInputSenha TextoLabel="Senha"           x:Name="entSenha" />
+            <local:LabelInputSenha TextoLabel="Confirmar Senha" x:Name="entConfirmaSenha" />
+        </StackLayout>
+
+        <HorizontalStackLayout x:Name="hsBotoesSalvarCancelar" Margin="0,0,0,40"  />
+
+    </VerticalStackLayout>
+</ContentPage>

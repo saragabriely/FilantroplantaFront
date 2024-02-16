@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Filantroplanta.Views.Produtor.Estoque"
+             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+             xmlns:local="clr-namespace:Filantroplanta.Views.Componentizacao"
+             NavigationPage.HasBackButton="False"
+             Title="Estoque">
+
+    <VerticalStackLayout 
+        Spacing="5"
+        Padding="30,0" 
+        >
+
+        <local:LabelTitulo Titulo="Controle de Estoque" x:Name="lblEstoque" />
+
+        <Label Text="Atualize a quantidade disponível para o produto selecionado" HorizontalTextAlignment="Center" Margin="0,0,0,25" />
+
+        <Grid x:Name="gridEstoque">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Text="Nome do produto: " Margin="0,0,0,10" FontAttributes="Bold" />
+            <Label Grid.Row="0" Grid.Column="1" Text="" x:Name="lblProduto" Margin="0,0,0,10" HorizontalTextAlignment="Start"  />
+
+            <Label Grid.Row="1" Grid.Column="0" Text="Quantidade original: " Margin="0,0,0,10" FontAttributes="Bold" />
+            <Label Grid.Row="1" Grid.Column="1" Text="" Margin="0,0,0,10" x:Name="entQtdeOriginal" />
+
+            <Label Grid.Row="2" Grid.Column="0" Text="Quantidade Vendida: " Margin="0,0,0,10" FontAttributes="Bold" />
+            <Label Grid.Row="2" Grid.Column="1" Text="" Margin="0,0,0,10" x:Name="entQtdeVendida" />
+
+            <Label Grid.Row="3" Grid.Column="0" Text="Quantidade Reservada: " Margin="0,0,0,10" FontAttributes="Bold" />
+            <Label Grid.Row="3" Grid.Column="1" Text="" Margin="0,0,0,10" x:Name="entQtdeReservada" />
+
+            <Label Grid.Row="4" Grid.Column="0" Text="Quantidade Disponível: " Margin="0,0,0,10" FontAttributes="Bold" />
+            <Entry Grid.Row="4" Grid.Column="1" Text="" Margin="0,0,0,10" x:Name="entQtdeDisponivel" />
+            <BoxView Grid.Row="5" Grid.Column="1" HeightRequest="1" Color="LightGray" Margin="0,0,0,10" />
+
+        </Grid>
+
+        <HorizontalStackLayout x:Name="hsBotoesSalvarCancelar" />
+
+    </VerticalStackLayout>
+</ContentPage>
